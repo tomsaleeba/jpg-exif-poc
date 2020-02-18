@@ -5,7 +5,8 @@ const dms2dec = require('dms2dec')
 
 async function doit() {
   const inputJpg = './in.jpg'
-  const image = sharp(inputJpg)
+  const imageBuffer = fs.readFileSync(inputJpg)
+  const image = sharp(imageBuffer)
 
   const buffer = await image
     .withMetadata()
